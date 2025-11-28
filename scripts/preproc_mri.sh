@@ -67,7 +67,7 @@ $CMD_ANTS antsRegistrationSyNQuick.sh \
 # Verify that the operation completed successfully.
 
 echo "🧠 [Step 3/6] Running Skull Stripping..."
-hd-bet -i "$OUTDIR/$WARPED" -o "$OUTDIR/$SKULLSTRIP" -device cpu --save_bet_mask --disable_tta > /dev/null 2>&1
+hd-bet -i "$OUTDIR/$WARPED" -o "$OUTDIR/$SKULLSTRIP" -device cpu --save_bet_mask > /dev/null 2>&1
 [ -s "$OUTDIR/$SKULLSTRIP" ] && [ -s "$OUTDIR/$BRAIN_MASK" ] || { echo "❌ Skull Stripping failed"; exit 1; }
 
 # Step 4: Perform Intensity Normalization (WhiteStripe).
