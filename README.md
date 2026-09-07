@@ -30,13 +30,13 @@ To run the preprocessing, run the following command:
 
 ```console
 python3 scripts/neuroflux.py \
-  --mri_path PATH \
-  --pet_path PATH \
-  --template_path PATH \
-  --mri_output_dir PATH \
-  --path_output_dir PATH \
-  --verbose \
-  --keep_all
+  --mri_path data/sub-0123/ses-00/mri/scan.nii.gz \
+  --pet_path data/sub-0123/ses-00/tau_pet/scan.nii.gz \
+  --template_path data/mni152_template.nii.gz \
+  --mri_output_dir data/sub-0123/ses-00/mri \
+  --path_output_dir data/sub-0123/ses-00/tau_pet \
+  --keep_all \
+  --verbose 
 ```
 
 ## Citations
