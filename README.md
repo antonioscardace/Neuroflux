@@ -1,4 +1,4 @@
-<img src="docs/images/readme.png" alt="Neuroflux"/>
+<img src="docs/images/readme.png" alt="neuroflux"/>
 
 <div align="center">
     <a href="https://img.shields.io/badge/Python-3.9-blue?style=for-the-badge" alt="Python"><img src="https://img.shields.io/badge/Python-3.9-blue?style=for-the-badge" alt="Python"></a>
@@ -7,27 +7,25 @@
 </div>
 <br/>
 
-Neuroflux is a fully **CPU-based** preprocessing pipeline for **paired sMRI and PET** data, built on top of powerful open-source neuroimaging tools. Given a T1w sMRI scan and its corresponding PET acquisition from the same visit, together with a reference space such as **MNI152**, it produces a set of standardized and analysis-ready outputs, each saved as an **independent** derivative.
+neuroflux is a CPU-based preprocessing pipeline for paired structural MRI (**sMRI**) and **tau-PET** data, built on open-source neuroimaging tools. Given a T1w sMRI and a corresponding PET scan from the same visit, neuroflux performs automated preprocessing to generate standardized, analysis-ready derivatives in BIDS format. The resulting outputs include preprocessed MRI and PET (PVC-corrected and SUVR-normalized) scans, a brain mask, a multi-ROI segmentation based on the **Desikan–Killiany atlas**, and ROI-level volumetric and uptake features.
 
-For the sMRI scan, Neuroflux generates a registered, skull-stripped and intensity-normalized image, a binary brain mask, a multi-ROI segmentation obtained with SynthSeg 2.0, and a dedicated CSV containing ROI-wise volumetric measures. This segmentation comprises around **100 ROIs** based on the **Desikan–Killiany** atlas. For the PET scan, Neuroflux produces a T1-aligned and template-registered image, a skull-stripped version, a PVC-corrected reconstruction and an SUVR-normalized map. Each of these outputs is saved independently, and an additional CSV reports ROI-level uptake features using the same atlas.<br/>
-
-<p align="center"><img src="docs/images/output.png" width="50%" alt="Neuroflux"/></p>
+<p align="center"><img src="docs/images/output.png" width="50%" alt="neuroflux"/></p>
 
 ## Installation
 
 The use of a dedicated virtual environment, like [Anaconda](https://www.anaconda.com/), is recommended to avoid dependency conflicts.<br/>
-To run the entire pipeline, [Docker](https://docs.docker.com/get-docker/) is needed and must be downloaded.<br/>
+To run the entire pipeline, [Docker](https://docs.docker.com/get-docker/) is required.<br/>
 Clone the repository and install the package in editable mode:
 
 ```console
-git clone https://github.com/antonioscardace/Neuroflux.git
+git clone https://github.com/antonioscardace/neuroflux.git
 cd neuroflux/
 pip install -e .
 ```
 
 ## Usage
 
-The `n_threads` parameter is optional. By default, Neuroflux automatically selects the maximum number of available physical CPU cores (excluding logical ones) to avoid oversubscription and ensure optimal performance without counterproductive overhead.
+The input CSV file must contain at least four columns: `subject_id, image_uid, path, type`, where the latter specifies whether the image is an MRI or PET scan. Additional metadata can be included as optional columns, such as diagnosis, sex, age, acquisition_date, and PET-specific details such as the radiotracer and other acquisition parameters. MRI and PET scans should belong to the same subject and visit (within 6 months). To run the preprocessing, run the following command:
 
 ```console
 python3 scripts/neuroflux.py \
@@ -36,8 +34,8 @@ python3 scripts/neuroflux.py \
   --template_path PATH \
   --mri_output_dir PATH \
   --path_output_dir PATH \
-  --n_threads INT \
-  --verbose
+  --verbose \
+  --keep_all
 ```
 
 ## Citations

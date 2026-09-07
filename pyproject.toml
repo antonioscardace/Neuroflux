@@ -4,29 +4,33 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "neuroflux"
-version = "0.0.0"
+version = "1.0.0"
 readme = "README.md"
-license = { text = "MIT" }
+license = { text = "GPL-3.0" }
 requires-python = ">=3.9"
-description = "A preprocessing pipeline for multimodal (PET and T1-weighted sMRI) scans."
-keywords = ["deep learning", "medical imaging", "neuroimaging", "multimodal ai", "preprocessing"]
+description = "A preprocessing pipeline for multimodal (PET and sMRI) scans."
+keywords = ["deep learning", "medical imaging", "neuroimaging", "multimodal", "preprocessing", "mri", "tau-pet"]
 authors = [
     { name = "Antonio Scardace", email = "antonio.scardace@phd.unict.it" }
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Operating System :: OS Independent",
 ]
 dependencies = [
     "hd-bet==2.0.1",
     "indexed_gzip>=0.7.0",
     "intensity-normalization==2.2.4",
+    "logging==0.4.9.6",
     "nibabel==3.2.2",
     "nnunetv2==2.6.2",
     "nvidia-ml-py==13.580.82",
+    "pandas==2.2.3",
     "psutil==7.0.0",
-    "pydicom==2.4.4"
+    "pydicom==2.4.4",
+    "rich==15.0.0",
+    "tqdm==4.67.1"
 ]
 
 [tool.setuptools.packages.find]

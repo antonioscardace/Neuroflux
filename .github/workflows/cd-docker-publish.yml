@@ -34,7 +34,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: ./utils/
+          context: ./tools/
           platforms: linux/amd64,linux/arm64
           tags: antonioscardace/neuroflux:latest
           push: true
