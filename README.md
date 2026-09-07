@@ -5,11 +5,10 @@
     <a href="https://img.shields.io/badge/License-GPL--3.0-lightgrey?style=for-the-badge"><img src="https://img.shields.io/badge/License-GPL--3.0-orange?style=for-the-badge" alt="License"></a>
     <a href="https://github.com/antonioscardace/Neuroflux/actions/workflows/cd-docker-publish.yml"><img src="https://img.shields.io/github/actions/workflow/status/antonioscardace/Neuroflux/cd-docker-publish.yml?style=for-the-badge" alt="DockerHub Push"></a>
 </div>
-<br/>
 
 neuroflux is a CPU-based preprocessing pipeline for paired structural MRI (**sMRI**) and **tau-PET** data, built on open-source neuroimaging tools. Given an sMRI and a corresponding PET scan from the same visit, neuroflux performs automated preprocessing to generate standardized, analysis-ready derivatives. The resulting outputs include preprocessed MRI and PET (PVC-corrected and SUVR-normalized) scans, a brain mask, a multi-ROI segmentation based on the **Desikan–Killiany atlas**, and ROI-level volumetric and uptake features.
 
-<p align="center"><img src="docs/images/output.png" width="50%" alt="neuroflux"/></p>
+<p align="center"><img src="docs/images/output.png" width="55%" alt="neuroflux"/></p>
 
 ## Installation
 
@@ -30,8 +29,8 @@ To run the preprocessing, run the following command:
 
 ```console
 python3 scripts/neuroflux.py \
-  --mri_path data/sub-0123/ses-00/mri/scan.nii.gz \
-  --pet_path data/sub-0123/ses-00/tau_pet/scan.nii.gz \
+  --mri_path data/sub-0123/ses-00/mri/raw.nii.gz \
+  --pet_path data/sub-0123/ses-00/tau_pet/raw.nii.gz \
   --template_path data/mni152_template.nii.gz \
   --mri_output_dir data/sub-0123/ses-00/mri \
   --path_output_dir data/sub-0123/ses-00/tau_pet \
