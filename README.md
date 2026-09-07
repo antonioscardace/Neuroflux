@@ -7,7 +7,7 @@
 </div>
 <br/>
 
-neuroflux is a CPU-based preprocessing pipeline for paired structural MRI (**sMRI**) and **tau-PET** data, built on open-source neuroimaging tools. Given a T1w sMRI and a corresponding PET scan from the same visit, neuroflux performs automated preprocessing to generate standardized, analysis-ready derivatives in BIDS format. The resulting outputs include preprocessed MRI and PET (PVC-corrected and SUVR-normalized) scans, a brain mask, a multi-ROI segmentation based on the **Desikan–Killiany atlas**, and ROI-level volumetric and uptake features.
+neuroflux is a CPU-based preprocessing pipeline for paired structural MRI (**sMRI**) and **tau-PET** data, built on open-source neuroimaging tools. Given a T1w sMRI and a corresponding PET scan from the same visit, neuroflux performs automated preprocessing to generate standardized, analysis-ready derivatives in **BIDS format**. The resulting outputs include preprocessed MRI and PET (PVC-corrected and SUVR-normalized) scans, a brain mask, a multi-ROI segmentation based on the **Desikan–Killiany atlas**, and ROI-level volumetric and uptake features.
 
 <p align="center"><img src="docs/images/output.png" width="50%" alt="neuroflux"/></p>
 
@@ -25,7 +25,8 @@ pip install -e .
 
 ## Usage
 
-The input CSV file must contain at least four columns: `subject_id, image_uid, path, type`, where the latter specifies whether the image is an MRI or PET scan. Additional metadata can be included as optional columns, such as diagnosis, sex, age, acquisition_date, and PET-specific details such as the radiotracer and other acquisition parameters. MRI and PET scans should belong to the same subject and visit (within 6 months). To run the preprocessing, run the following command:
+The input CSV file must contain at least four columns: `subject_id, image_uid, path, type`, where the latter specifies whether the image is an MRI or PET scan. Additional metadata can be included as optional columns, such as diagnosis, sex, age, acquisition_date, and PET-specific details such as the radiotracer and other acquisition parameters. MRI and PET scans should belong to the same subject and visit (**within 6 months**).<br/>
+To run the preprocessing, run the following command:
 
 ```console
 python3 scripts/neuroflux.py \
