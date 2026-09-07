@@ -7,7 +7,7 @@
 </div>
 <br/>
 
-neuroflux is a CPU-based preprocessing pipeline for paired structural MRI (**sMRI**) and **tau-PET** data, built on open-source neuroimaging tools. Given a sMRI and a corresponding PET scan from the same visit, neuroflux performs automated preprocessing to generate standardized, analysis-ready derivatives. The resulting outputs include preprocessed MRI and PET (PVC-corrected and SUVR-normalized) scans, a brain mask, a multi-ROI segmentation based on the **Desikan–Killiany atlas**, and ROI-level volumetric and uptake features.
+neuroflux is a CPU-based preprocessing pipeline for paired structural MRI (**sMRI**) and **tau-PET** data, built on open-source neuroimaging tools. Given an sMRI and a corresponding PET scan from the same visit, neuroflux performs automated preprocessing to generate standardized, analysis-ready derivatives. The resulting outputs include preprocessed MRI and PET (PVC-corrected and SUVR-normalized) scans, a brain mask, a multi-ROI segmentation based on the **Desikan–Killiany atlas**, and ROI-level volumetric and uptake features.
 
 <p align="center"><img src="docs/images/output.png" width="50%" alt="neuroflux"/></p>
 
@@ -25,7 +25,7 @@ pip install -e .
 
 ## Usage
 
-MRI and PET scans should belong to the same subject and visit (**within 6 months**).<br/>
+sMRI and tau-PET scans should belong to the same subject and be acquired **within 6 months** of each other.<br/>
 To run the preprocessing, run the following command:
 
 ```console
